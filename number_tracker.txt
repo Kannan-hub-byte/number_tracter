@@ -1,0 +1,34 @@
+import requests
+
+
+def get_phone_location(phone_number, api_key):
+    url = f"http://apilayer.net/api/validate?access_key={api_key}&number={phone_number}"
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+
+        if data['valid']:
+            location_info = {
+                'country_code': data['country_code'],
+                'country_name': data['country_name'],
+                'location': data['location'],
+                'carrier': data['carrier'],
+                'line_type': data['line_type'],
+                'area_pincode': data['area_pincode'],
+            }
+            return location_info
+        else:
+            return "Invalid phone number."
+    else:
+        return "Error: Unable to fetch data."
+
+
+# Example usage
+if __name__ == "__main__":
+    api_key = "c38e83e4aa1037180e00701d77e42cfa"  # Replace with your Numverify API key
+    phone_number = input("Enter the phone number (with country code): ")
+
+    location = get_phone_location(phone_number, api_key)
+    print(location)
