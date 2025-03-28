@@ -33,3 +33,4 @@ We welcome contributions! Follow these steps:
 2️⃣ Create a new branch (feature-new-feature).
 3️⃣ Commit changes and push to the branch.
 4️⃣ Submit a pull request (PR).
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
